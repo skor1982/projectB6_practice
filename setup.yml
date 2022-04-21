@@ -29,5 +29,5 @@
     include_role:
       name: http
     vars:
-      php_host: '{{hostvars[php.example.com][php_host]}}'
+      php_host: '{{hostvars[php.example.com][ansible_default_ipv4][address]}}'
 

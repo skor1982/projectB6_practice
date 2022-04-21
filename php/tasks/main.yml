@@ -28,7 +28,7 @@
   ansible.builtin.setup:
     filter:
     - 'ansible_default_ipv4.address'
-  register: php_host
+#  register: php_host
 
 - name: Start php-fpm
   ansible.builtin.systemd:

@@ -1,19 +1,22 @@
 php
 =========
 
-Installs php-fpm with custom config. Declares variable php_host with macine ip address.
+Installs php-fpm with custom config. Collects machime ip address via modeule "setup"
 
 Requirements
 ------------
 
+None
 
 Role Variables
 --------------
 
+None
 
 Dependencies
 ------------
 
+None
 
 Example Playbook
 ----------------
