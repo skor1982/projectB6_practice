@@ -20,7 +20,7 @@
 
 - name: Put our custom nginx config
   ansible.builtin.template:
-    src: nginx_site_conf_b6.j2
+    src: templates/nginx_site_conf_b6.j2
     dest: /etc/nginx/sites-available/default
 
 - name: Ensure existence of www root
@@ -32,7 +32,7 @@
   ansible.builtin.copy:
     src: /home/ansible/Documents/projectB6_practice/index.php.b6
     dest: /var/www/html/index.php
-    remote_src: yes
+#    remote_src: yes
 
 
 - name: Start nginx

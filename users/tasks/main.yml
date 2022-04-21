@@ -17,5 +17,5 @@
     owner: user1
     group: user1
     mode: '0400'
-    remote_src: yes
+#    remote_src: yes
 

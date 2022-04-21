@@ -1,0 +1,14 @@
+---
+- name: Setup www-frontend
+
+  hosts: 10.128.0.21
+
+  gather_facts: true
+
+  tasks:
+
+  - name: print var
+    debug: var=hostvars['10.128.0.21']['ansible_default_ipv4']['address']
+#      msg: "{{[10.128.0.21][ansible_default_ipv4][address]}}"
+#      var : hostvars[10.128.0.21]['ansible_default_ipv4']['address']
+#      msg: "{{var}}"

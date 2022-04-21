@@ -22,7 +22,7 @@
   ansible.builtin.copy:
     src: /home/ansible/Documents/projectB6_practice/www.conf.b6
     dest: /etc/php/7.4/fpm/pool.d/www.conf
-    remote_src: yes
+#    remote_src: yes
 
 - name: Register php host ip address
   ansible.builtin.setup:
