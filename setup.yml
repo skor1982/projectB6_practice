@@ -28,6 +28,6 @@
 
   - name: install nginx
     include_role:
-      name: html
+      name: http
       vars:
         php_host:{{php_host}}
