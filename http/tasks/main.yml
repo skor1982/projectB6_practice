@@ -23,6 +23,18 @@
     src: nginx_site_conf_b6.j2
     dest: /etc/nginx/sites-available/default
 
+- name: Ensure existence of www root
+  ansible.builtin.file:
+    path: /var/www/html
+    state: directory
+
+- name: Put our custom page
+  ansible.builtin.copy:
+    src: /home/corsair/Documents/projectB6_practice/index.php.b6
+    dest: /var/www/html/index.php
+    remote_src: yes
+
+
 - name: Start nginx
   ansible.builtin.systemd:
     state: started
