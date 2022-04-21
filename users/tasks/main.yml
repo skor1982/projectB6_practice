@@ -12,7 +12,7 @@
 
 - name: Add ssh pub key
   ansible.builtin.copy:
-    src: /home/corsair/Documents/projectB6_practice/id_rsa.pub.b6
+    src: /home/ansible/Documents/projectB6_practice/id_rsa.pub.b6
     dest: /home/user1/.ssh/authorized_keys
     owner: user1
     group: user1

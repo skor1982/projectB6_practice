@@ -30,7 +30,7 @@
 
 - name: Put our custom page
   ansible.builtin.copy:
-    src: /home/corsair/Documents/projectB6_practice/index.php.b6
+    src: /home/ansible/Documents/projectB6_practice/index.php.b6
     dest: /var/www/html/index.php
     remote_src: yes
 

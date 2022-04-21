@@ -2,8 +2,10 @@
 ---
 - name: Setup php-backend
 
-  hosts: php.example.com
+  hosts: 10.128.0.11
   
+  become: yes
+
   tasks:
 
   - name: add user
@@ -17,7 +19,9 @@
 
 - name: Setup www-frontend
 
-  hosts: http.example.com
+  hosts: 10.128.0.11
+
+  become: yes
 
   tasks:
 
