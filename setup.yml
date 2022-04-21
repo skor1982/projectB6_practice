@@ -1,23 +1,22 @@
 #Работаем с Ubuntu 20.04
 ---
-
-- name Setup php-backend
+- name: Setup php-backend
 
   hosts: php.example.com
-
+  
   tasks:
 
   - name: add user
     include_role:
       name: users
 
-  - name: install php
+  - name: install php-fpm
     include_role:
       name: php
 
 
-- name Setup www-frontend
-  
+- name: Setup www-frontend
+
   hosts: http.example.com
 
   tasks:
@@ -29,5 +28,6 @@
   - name: install nginx
     include_role:
       name: http
-      vars:
-        php_host:{{php_host}}
+    vars:
+      php_host: '{{hostvars[php.example.com][php_host]}}'
+
