@@ -27,7 +27,7 @@
 - name: Register php host ip address
   ansible.builtin.setup:
     filter:
-    - 'ansible_default_ipv4.address'
+    - 'ansible_default_ipv4'
 #  register: php_host
 
 - name: Start php-fpm
