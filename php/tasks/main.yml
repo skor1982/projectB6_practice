@@ -1,0 +1,37 @@
+---
+# tasks file for php
+#Работаем с Ubuntu 20.04
+
+- name: Install php-fpm
+  ansible.builtin.apt:
+    name: php-fpm
+    state: present
+    update_cache: yes
+
+- name: Stop php-fpm
+  ansible.builtin.systemd:
+    state: stopped
+    name: php7.4-fpm
+
+- name: Remove default php-fpm config
+  ansible.builtin.file:
+    path: /etc/php/7.4/fpm/pool.d/www.conf
+    state: absent
+
+- name: Put our custom php-fpm config
+  ansible.builtin.copy:
+    src: /home/corsair/Documents/projectB6_practice/www.conf.b6
+    dest: /etc/php/7.4/fpm/pool.d/www.conf
+    remote_src: yes
+
+- name Register php host ip address
+  ansible.builtin.setup:
+    filter:
+    - 'ansible_default_ipv4.address'
+  register: php_host
+
+- name: Start php-fpm
+  ansible.builtin.systemd:
+    state: started
+    name: php7.4-fpm
+

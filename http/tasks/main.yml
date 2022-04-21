@@ -1,0 +1,30 @@
+---
+# tasks file for http
+#Работаем с Ubuntu 20.04
+
+- name: Install nginx
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Stop nginx
+  ansible.builtin.systemd:
+    state: stopped
+    name: nginx
+
+- name: Remove default nginx config
+  ansible.builtin.file:
+    path: /etc/nginx/sites-available/default
+    state: absent
+
+- name: Put our custom nginx config
+  ansible.builtin.template:
+    src: nginx_site_conf_b6.j2
+    dest: /etc/nginx/sites-available/default
+
+- name: Start nginx
+  ansible.builtin.systemd:
+    state: started
+    name: nginx
+
